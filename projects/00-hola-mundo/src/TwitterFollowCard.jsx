@@ -1,6 +1,20 @@
-export function TwitterFollowCard({formatUserName,userName,name,isFollowing}) {
+import { useState } from "react"
+export function TwitterFollowCard({formatUserName,userName,name}) {
+// crear estado
+const[isFollowing,setisFollowing] = useState(false)
+// const state = useState(false)
+// const setisFollowing = state[1]
+
+    const text = isFollowing ? 'Siguiendo': 'Seguir'
+const buttonClassName = isFollowing ? 'tw-followCard-button is-following'
+: 'tw-followCard-button'
+
+const handleClick = () => {
+    setisFollowing(!isFollowing)
+}
 
     return(
+        
         //elementos
         <article className='tw-followCard'>
         <header className='tw-followCard-header'>
@@ -12,12 +26,13 @@ export function TwitterFollowCard({formatUserName,userName,name,isFollowing}) {
             <span className='tw-followCard-infoUserName'>{formatUserName(userName)}</span>
           </div>
         </header>
-
+            {/* la palabara seguir en un children 
+            es decir un hijo del elemento que lo embuelve en este caso es aside */}
         <aside>
-          <button className='tw-followCard-button'>
-            Seguir
+          <button className={buttonClassName} onClick={handleClick}>
+            {text}
           </button>
         </aside>
-      </article>
+      </article> 
     )
 }

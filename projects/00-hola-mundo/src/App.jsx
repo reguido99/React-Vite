@@ -7,12 +7,14 @@ import { TwitterFollowCard } from './TwitterFollowCard'
 function App (){
   // se puede pasar funciones
   const format= (userName) => `@${userName}`
+  const [name, serName] = useState('reddit.com')
+
 return(
   <section className='App'>
     <TwitterFollowCard 
     formatUserName={format} 
     isFollowing={true} 
-    userName={'reddit.com'} 
+    userName={name} 
     name={'Guido Reyes'} 
     />
     <TwitterFollowCard 

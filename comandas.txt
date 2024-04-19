@@ -9,3 +9,5 @@ npm run dev
 
 // pligin 
 npm install @vitejs/plugin-react -E
+// instalar dependencias de react
+npm install react react/dom -E
